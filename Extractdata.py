@@ -1,16 +1,13 @@
-data1, data2 = [], [] # Listes qui contiendrons les valeus qui seron extraites
+import csv
 
-def sameind(text, val): # fonction pour savoir l'indice d'une valeur recherchée
-    listind = []
-    for i in range(len(text)):
-        if text[i] == val:
-            listind.append(i)
-    return listind
+data1, data2 = [], []
 
-with open("qualite-de-lair-mesuree-dans-la-station-chatelet-rer-a0.csv") as f: #ouverture du fichier csv
-    for line in f.readlines(): # Parcour de chaque ligne
-        listind = sameind(line, ";") # liste d'indices des caractères qui sont : ;
-        data1.append(line[:listind[0]])
-        data2.append(line[listind[1]+1:listind[2]])
+with open('qualite-de-lair-mesuree-dans-la-station-chatelet-rer-a0.csv') as fichier_csv:
+    reader = csv.DictReader(fichier_csv, delimiter=';')
+    for ligne in reader:
+        data1.append(ligne["\ufeffdate/heure"])
+        data2.append(ligne["TEMP"])
 
-print(data1, data2)
+
+if __name__ == "__main__":
+    print(data1, data2)
