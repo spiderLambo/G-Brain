@@ -15,9 +15,9 @@ def printChooseDico(dict): # Fonction pour afficher clées possibles dictionnair
 
 with open('qualite-de-lair-mesuree-dans-la-station-chatelet-rer-a0.csv') as fichier_csv:
     reader = csv.DictReader(fichier_csv, delimiter=';')
-
+    i=0
     for ligne in reader:
-        # Permettre à l'utisisateu de faire un choix au premier tour de bouxhe
+        # Permettre à l'utisisateur de faire un choix au premier tour de bouxhe
         while not repd2 in ligne:  # Redemander tant que la réponse 2 n'est pas dans le champ proposé
 
             listeChoix = printChooseDico(ligne)
@@ -31,11 +31,17 @@ with open('qualite-de-lair-mesuree-dans-la-station-chatelet-rer-a0.csv') as fich
                 if repd1 - 1 in range(len(listeChoix)): # Associer un numéro à une clée
                     repd1 = listeChoix[repd1 - 1]  # replacer l'id par le choix
 
+        # permettre le transtypage
+        ligne[repd1] = ligne[repd1].replace(",", ".")
+        ligne[repd2] = ligne[repd2].replace(",", ".")
 
-        # Ajouter l'élément
-        data1.append(ligne[repd1])
-        data2.append(ligne[repd2])
+
+        # Ajouter l'élément si il peur être convertis
+        if ligne[repd1].replace(".", "").isdigit() and ligne[repd2].replace(".", "").isdigit():
+            data2.append(float(ligne[repd2]))
+            data1.append(float(ligne[repd1]))
 
 
 if __name__ == "__main__":
-    print(data1, data2)
+    print("data1:", len(data1))
+    print("data2:", len(data2))
