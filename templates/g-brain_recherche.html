@@ -38,11 +38,11 @@
 
     <!-- Liste des graphiques -->
     <div class="graphiques">
-      {% for elt in search%}
+      {% for elt in search[0]%}
       <a
         href="g-brain_graphe.html?nom=Courbe%20de%20temp%C3%A9rature"
         class="graph-item"
-        >elt</a
+        >{{elt}}</a
       >
       {%endfor%}
     </div>

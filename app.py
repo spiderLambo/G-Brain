@@ -12,9 +12,9 @@ def home():
 
 
 # Page de recherche
-@app.route("/search")
-def searchapp():
-    return render_template("g-brain_recherche.html", search=["a"])
+@app.route("/search/<recherche>")
+def searchapp(recherche):
+    return render_template("g-brain_recherche.html", search=search(recherche))
 
 
 if __name__ == "__main__":
