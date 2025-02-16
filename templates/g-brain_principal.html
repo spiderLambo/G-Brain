@@ -2,14 +2,14 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="g-brain_principal.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/g-brain_principal.css') }}"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" charset="utf-8"></script>
     <title>G-Brain</title>
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <a href="#"><img src="Logo_complet.png" alt="Logo: G-Brain" class="logo"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/Logo_complet.png') }}" alt="Logo: G-Brain" class="logo"></a>
         </div>
     </header>
 
