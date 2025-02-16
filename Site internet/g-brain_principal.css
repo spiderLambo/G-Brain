@@ -1,0 +1,68 @@
+/* Réinitialisation de base */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* En-tête */
+header {
+    display: flex;
+    justify-content: center; /* Centre le contenu */
+    align-items: center;
+    margin-top: 140px;
+}
+
+/* Carré arrondi derrière le logo */
+.logo-container {
+    background-color: #1c7079; /* Couleur du carré */
+    border-radius: 20% / 50%; /* Appliquer des arrondis différents pour les côtés et le haut/bas */
+    padding: 30px 100px; /* Augmenter l'espace autour du logo */
+    display: inline-block; /* Assure que ça s’adapte à la taille du logo */
+}
+
+/* Logo */
+.logo {
+    height: 100px;
+    display: block; /* Évite les espaces indésirables autour de l'image */
+}
+
+/* Barre de recherche */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+    max-width: 500px;
+}
+
+/* Champ de recherche */
+.search-bar input {
+    width: 300px;
+    padding: 10px 15px;
+    border: 2px solid #ccc;
+    border-radius: 25px 0 0 25px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+/* Effet focus */
+.search-bar input:focus {
+    border-color: #eb2f1c;
+    outline: none;
+}
+
+/* Bouton de recherche */
+.search-bar button {
+    padding: 10px 15px;
+    background-color: #eb2f1c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+.search-bar button:hover {
+    background-color: #c42514;
+}

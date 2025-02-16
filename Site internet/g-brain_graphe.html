@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="g-brain_graphe.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.0/chart.umd.js"></script>
+    <title>Graphique - G-Brain</title>
+</head>
+<body>
+
+    <!-- Logo -->
+    <header>
+        <a href="g-brain_principal.html"><img src="Logo_complet.png" alt="Logo: G-Brain" class="logo"></a>
+    </header>
+
+    <!-- Titre dynamique -->
+    <h1 id="titreGraphe"></h1>
+
+    <!-- Zone pour afficher le graphique -->
+    <div class="graph-container">
+        <canvas id="monGraphique"></canvas>
+    </div>
+
+    <script>
+        // Fonction pour récupérer le paramètre "nom" depuis l'URL
+        function getQueryParam(param) {
+            let urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Récupération du nom du graphe depuis l'URL
+        let nomGraphe = getQueryParam("nom") || "Graphique Inconnu";
+        document.getElementById("titreGraphe").textContent = nomGraphe;
+
+        // Exemple de graphique aléatoire (tu peux changer les données ici)
+        let ctx = document.getElementById("monGraphique").getContext("2d");
+        new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["Jan", "Fév", "Mar", "Avr", "Mai"],
+                datasets: [{
+                    label: nomGraphe,
+                    data: [12, 19, 3, 5, 7],
+                    backgroundColor: "rgba(75, 192, 192, 0.6)"
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+
+</body>
+</html>

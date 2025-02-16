@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="g-brain_recherche.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" charset="utf-8"></script>
+    <title>Résultats de recherche - G-Brain</title>
+</head>
+<body>
+
+    <!-- Logo -->
+    <header>
+        <a href="g-brain_principal.html"><img src="Logo_complet.png" alt="Logo: G-Brain" class="logo"></a>
+    </header>
+
+    <!-- Barre de recherche -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Rechercher un graphe sur G-Brain..." required>
+        <button id="searchButton">🔍</button>
+    </div>
+
+    <!-- Liste des graphiques -->
+    <div class="graphiques"></div>
+
+    <script>
+        let graphiques = [
+            "Histogramme des ventes",
+            "Courbe de température",
+            "Diagramme circulaire des votes",
+            "Nuage de points des performances",
+            "Graphique en barres des résultats"
+        ];
+
+        function getQueryParam(param) {
+            let urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function afficherGraphiques(filtre = "") {
+            let container = document.querySelector(".graphiques");
+            container.innerHTML = "";
+
+            let graphiquesFiltres = graphiques
+                .filter(g => g.toLowerCase().includes(filtre.toLowerCase()))
+                .sort();
+
+            graphiquesFiltres.forEach(g => {
+                let link = document.createElement("a");
+                link.href = `g-brain_graphe.html?nom=${encodeURIComponent(g)}`;
+                link.classList.add("graph-item");
+                link.textContent = g;
+                container.appendChild(link);
+            });
+        }
+
+        function rechercher() {
+            let query = document.getElementById("searchInput").value.trim();
+            if (query) {
+                window.location.href = `g-brain_recherche.html?search=${encodeURIComponent(query)}`;
+            }
+        }
+
+        document.getElementById("searchButton").addEventListener("click", rechercher);
+        document.getElementById("searchInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                rechercher();
+            }
+        });
+
+        // Charger la recherche depuis l'URL
+        let searchQuery = getQueryParam("search") || "";
+        document.getElementById("searchInput").value = searchQuery;
+        afficherGraphiques(searchQuery);
+    </script>
+
+</body>
+</html>
