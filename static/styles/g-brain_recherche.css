@@ -29,7 +29,7 @@ header {
 }
 
 /* Champ de recherche */
-.search-bar input {
+.search-bar #searchInput {
     width: 300px;
     padding: 10px 15px;
     border: 2px solid #ccc;
@@ -39,13 +39,13 @@ header {
 }
 
 /* Effet focus */
-.search-bar input:focus {
+.search-bar #searchInput:focus {
     border-color: #eb2f1c;
     outline: none;
 }
 
 /* Bouton de recherche */
-.search-bar button {
+.search-bar #Submit {
     padding: 10px 15px;
     background-color: #eb2f1c;
     color: white;
@@ -56,7 +56,7 @@ header {
     font-size: 16px;
 }
 
-.search-bar button:hover {
+.search-bar #Submit:hover {
     background-color: #c42514;
 }
 
