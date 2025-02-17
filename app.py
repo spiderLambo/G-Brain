@@ -32,7 +32,7 @@ def searchapp(recherche):
 # Page d'un graphique
 @app.route("/graph/<graphName>")
 def graph(graphName):
-    return render_template("g-brain_graphe.html")
+    return render_template("g-brain_graphe.html", info = getInfos((graphName)))
 
 
 # Page d'erreur

@@ -8,3 +8,12 @@ def search(val):
     result = cursor.fetchall()
     conn.commit()
     return result
+
+# Fonction pour avoir toutes les informations d'un graphe
+def getInfos(Name):
+    conn = sqlite3.connect("database.db")
+    cursor = conn.cursor()
+    cursor.execute(f"SELECT * FROM Graphes WHERE Nom = ?", (Name,))
+    result = cursor.fetchall()
+    conn.commit()
+    return result

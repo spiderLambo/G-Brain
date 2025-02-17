@@ -24,14 +24,28 @@
     </header>
 
     <!-- Titre dynamique -->
-    <h1 id="titreGraphe"></h1>
+    <h1 id="titreGraphe">{{info[0][0]}}</h1>
+
+    <!--Graphiques-->
+    <img
+      src="{{ url_for('static', filename=info[0][1]) }}"
+      alt="{{info[0][0]}}"
+    />
+    <img
+      src="{{ url_for('static', filename=info[0][2]) }}"
+      alt="{{info[0][0]}}"
+    />
+    <img
+      src="{{ url_for('static', filename=info[0][3]) }}"
+      alt="{{info[0][0]}}"
+    />
 
     <!-- Zone pour afficher le graphique -->
     <div class="graph-container">
       <canvas id="monGraphique"></canvas>
     </div>
 
-    <script>
+    <!--<script>
       // Fonction pour récupérer le paramètre "nom" depuis l'URL
       function getQueryParam(param) {
         let urlParams = new URLSearchParams(window.location.search);
@@ -60,6 +74,6 @@
           responsive: true,
         },
       });
-    </script>
+    </script>-->
   </body>
 </html>
