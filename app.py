@@ -18,8 +18,14 @@ def home():
 
 
 # Page de recherche
-@app.route("/search/<recherche>")
+@app.route("/search/<recherche>", methods=["GET", "POST"])
 def searchapp(recherche):
+    # Envois de la recherche
+    if request.method == "POST":
+        action = request.form  # Récupérer les données du formulaire
+
+        return redirect(f"/search/{action.get('rechercher')}")  # Rediriger
+
     return render_template("g-brain_recherche.html", search=search(recherche))
 
 
