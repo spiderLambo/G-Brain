@@ -1,0 +1,45 @@
+/* Réinitialisation */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* En-tête */
+header {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Réduction de l'espace */
+    padding: 15px 50px;
+    background-color: #1c7079;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d’une ombre */
+}
+
+header * {
+    height: 70px;
+}
+
+
+/* Texte d'erreur */
+p {
+    font-size: 5vh;
+}
+p::first-line {
+    font-size: 40vh;
+}
+
+
+/* Boutton */
+button {
+    padding: 5vh;
+    font-size: 5vh;
+    border-radius: 10px;
+    border: none;
+    background-color: #eb2f1c;
+    position: relative;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}

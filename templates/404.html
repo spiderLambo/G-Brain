@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Erreur</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles/error.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <img
+        src="{{ url_for('static', filename='images/Logo_complet.png') }}"
+        alt="Logo: G-Brain"
+        class="logo"
+      />
+    </header>
+
+    <p>Erreur 404<br />Page introuvable</p>
+
+    <button><a href="http://127.0.0.1:5000/">Retourner au menu</a></button>
+
+    <script src="{{ url_for('static', filename='scripts/error.js') }}"></script>
+  </body>
+</html>

@@ -26,7 +26,14 @@ def searchapp(recherche):
 
         return redirect(f"/search/{action.get('rechercher')}")  # Rediriger
 
+    # Envoyer la page avec la recherche
     return render_template("g-brain_recherche.html", search=search(recherche))
+
+# Page d'erreur
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
 
 
 if __name__ == "__main__":

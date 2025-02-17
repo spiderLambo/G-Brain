@@ -35,27 +35,5 @@
       />
       <input id="Submit" type="submit" value="🔍" />
     </form>
-
-    <script>
-      function rechercher() {
-        let query = document.getElementById("searchInput").value.trim();
-        if (query) {
-          window.location.href = `g-brain_recherche.html?search=${encodeURIComponent(
-            query
-          )}`;
-        }
-      }
-
-      document
-        .getElementById("searchButton")
-        .addEventListener("click", rechercher);
-      document
-        .getElementById("searchInput")
-        .addEventListener("keypress", function (event) {
-          if (event.key === "Enter") {
-            rechercher();
-          }
-        });
-    </script>
   </body>
 </html>
