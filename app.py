@@ -29,6 +29,12 @@ def searchapp(recherche):
     # Envoyer la page avec la recherche
     return render_template("g-brain_recherche.html", search=search(recherche))
 
+# Page d'un graphique
+@app.route("/graph/<graphName>")
+def graph(graphName):
+    return render_template("g-brain_graphe.html")
+
+
 # Page d'erreur
 @app.errorhandler(404)
 def page_not_found(e):
