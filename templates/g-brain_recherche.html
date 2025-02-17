@@ -40,9 +40,7 @@
     <!-- Liste des graphiques -->
     <div class="graphiques">
       {% for elt in search[0]%}
-      <a
-        href="g-brain_graphe.html?nom=Courbe%20de%20temp%C3%A9rature"
-        class="graph-item"
+      <a href="http://127.0.0.1:5000/graph/{{elt}}" class="graph-item"
         >{{elt}}</a
       >
       {%endfor%}
