@@ -32,14 +32,18 @@ def searchapp(recherche):
 # Page d'un graphique
 @app.route("/graph/<graphName>")
 def graph(graphName):
-    return render_template("g-brain_graphe.html", info = getInfos((graphName)))
+    infos = getInfos((graphName))
+
+    if infos == []: # Si le document n'existe pas
+        infos = [('Graphique Inconnu', '', '', '')]
+
+    return render_template("g-brain_graphe.html", info = infos)
 
 
 # Page d'erreur
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
-
 
 
 if __name__ == "__main__":

@@ -13,7 +13,7 @@ def printChooseDico(dict): # Fonction pour afficher clées possibles dictionnair
         listeChoix.append(key)
     return listeChoix
 
-with open('qualite-de-lair-mesuree-dans-la-station-chatelet-rer-a0.csv') as fichier_csv:
+with open('vacsi12-dep-2022-01-26-19h10.csv') as fichier_csv:
     reader = csv.DictReader(fichier_csv, delimiter=';')
     i=0
     for ligne in reader:
