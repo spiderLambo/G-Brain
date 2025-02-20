@@ -20,3 +20,12 @@ def getInfos(Name):
     result = cursor.fetchall()
     conn.commit()
     return result
+
+# Fonction pour déterminer si un utilisateur est dans la bdd
+def isin(tuple):
+    conn = sqlite3.connect("database.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM Admins WHERE Nom = ? AND Pass = ?", tuple)
+    result = cursor.fetchall()
+    conn.commit()
+    return not result ==[]

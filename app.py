@@ -43,7 +43,11 @@ def graph(graphName):
 # Page de connexion
 @app.route("/connexion")
 def connect():
-    return render_template('g-brain_connexion.html')
+    # Renvoie une page en fonction de l'utilisateur
+    if isin((request.args.get("Nom"), request.args.get("Pass"))):
+        return render_template('g-brain_ajout.html')
+    else:
+        return render_template('g-brain_connexion.html')
 
 
 # Page d'erreur
