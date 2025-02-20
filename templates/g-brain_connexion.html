@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles/g-brain_connexion.css') }}"
+    />
+    <link rel="icon" href="logo_short.png">
+    <title>Page de connexion - G-Brain</title>
+  </head>
+  <body>
+    <!-- Logo -->
+    <header>
+      <a href="http://127.0.0.1:5000/"
+        ><img
+          src="{{ url_for('static', filename='images/Logo_complet.png') }}"
+          alt="Logo: G-Brain"
+          class="logo"
+      /></a>
+    </header>
+
+    <div class="login-container">
+      <h2>Connexion</h2>
+      <form id="loginForm">
+          <label for="username">Identifiant</label>
+          <input type="text" id="username" required>
+          
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" required>
+          
+          <button type="submit">Se connecter</button>
+      </form>
+    </div>
+  </body>
