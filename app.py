@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 from bddGestion import *
 from programme.Extractdata import extractname
 import io
 
 # Création de l'application
 app = Flask(__name__, static_url_path="/static")
+app.secret_key = "supersecretkey"  # Nécessaire pour utiliser `session`
 
 
 # Page principale
@@ -46,18 +47,20 @@ def graph(graphName):
 @app.route("/connexion", methods=["GET", "POST"])
 def connect():
     # Renvoie une page en fonction de l'utilisateur
-    if isin((request.args.get("Nom"), request.args.get("Pass"))):
+    if isin((request.args.get("Nom"), request.args.get("Pass"))) or session.get("fichierEnregistre"):
+        # Marquer le fichier comme enregistré
+        session["fichierEnregistre"] = True
         if request.method == "POST":
-            global fichier
             fichier = request.files.get("file")  # Enregistrement du fichier
             return redirect("/choisirParametre")
         return render_template("g-brain_ajout.html")
     else:
         return render_template('g-brain_connexion.html')
 
+
 @app.route("/choisirParametre")
 def param():
-    print(fichier)
+    return 'test'
 
 
 # Page d'erreur
