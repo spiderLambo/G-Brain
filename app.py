@@ -60,14 +60,15 @@ def connect():
                 session["file_path"] = file_path  # On stocke le chemin du fichier
 
             return redirect("/choisirParametre")
-        return render_template("g-brain_ajout.html")
+        return render_template("g-brain_ajout-fichier.html")
     else:
         return render_template('g-brain_connexion.html')
 
 
 @app.route("/choisirParametre")
 def param():
-    return session["file_path"]
+    colonne = extractname(session["file_path"])
+    return render_template("g-brain_ajout-bdd.html", colonne = colonne)
 
 
 # Page d'erreur
