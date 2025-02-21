@@ -2,13 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Title</title>
+    <title>Ajout</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles/g-brain_ajout.css') }}"
+    />
   </head>
   <body>
-    <form method="POST" action="/connexion" enctype="multipart/form-data">
-      <label for="file"></label>
-      <input type="file" name="file" accept=".csv" required />
-      <input type="submit" value="Valider" />
-    </form>
+    <!-- Logo -->
+    <header>
+      <a href="http://127.0.0.1:5000/"
+        ><img
+          src="{{ url_for('static', filename='images/Logo_complet.png') }}"
+          alt="Logo: G-Brain"
+          class="logo"
+      /></a>
+    </header>
+    <div class="add_container">
+      <form method="POST" action="/connexion" enctype="multipart/form-data">
+        <label for="file"></label>
+        <input type="file" name="file" accept=".csv" required/>
+        <input id="button" type="submit" value="Valider"/>
+      </form>
+    </div>
   </body>
 </html>
