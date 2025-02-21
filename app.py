@@ -1,7 +1,7 @@
+import os
 from flask import Flask, render_template, request, redirect, session
 from bddGestion import *
 from programme.Extractdata import extractname
-import io
 
 # Création de l'application
 app = Flask(__name__, static_url_path="/static")
@@ -50,8 +50,15 @@ def connect():
     if isin((request.args.get("Nom"), request.args.get("Pass"))) or session.get("fichierEnregistre"):
         # Marquer le fichier comme enregistré
         session["fichierEnregistre"] = True
+
+        fichier = request.files.get("file")  # Récupérer le fichier
         if request.method == "POST":
-            fichier = request.files.get("file")  # Enregistrement du fichier
+            if fichier:
+                file_path = os.path.join("uploads", fichier.filename)
+                fichier.save(file_path)  # Sauvegarde temporaire
+
+                session["file_path"] = file_path  # On stocke le chemin du fichier
+
             return redirect("/choisirParametre")
         return render_template("g-brain_ajout.html")
     else:
@@ -60,7 +67,7 @@ def connect():
 
 @app.route("/choisirParametre")
 def param():
-    return 'test'
+    return session["file_path"]
 
 
 # Page d'erreur
