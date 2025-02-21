@@ -68,6 +68,12 @@ def connect():
 @app.route("/choisirParametre")
 def param():
     colonne = extractname(session["file_path"])
+
+    # Supprimer le fichier
+    os.remove(session["file_path"])
+    session.pop("file_path")
+
+
     return render_template("g-brain_ajout-bdd.html", colonne = colonne)
 
 
