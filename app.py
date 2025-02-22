@@ -81,7 +81,7 @@ def param():
 
         # Ajouter à la bdd
         addGraph(
-            f"{session["fichier"][:-4]} ({formulaire.get("data1")} en foction de {formulaire.get("data2")}",
+            f"{session["fichier"][:-4]} ({formulaire.get("data1")} en fonction de {formulaire.get("data2")})",
             f"graphs/bar/{session["fichier"][:-4]}.{formulaire.get("data1")}.{formulaire.get("data2")}.png",
             f"graphs/scatter/{session["fichier"][:-4]}.{formulaire.get("data1")}.{formulaire.get("data2")}.png",
             f"graphs/plot/{session["fichier"][:-4]}.{formulaire.get("data1")}.{formulaire.get("data2")}.png"

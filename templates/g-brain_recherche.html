@@ -39,9 +39,9 @@
 
     <!-- Liste des graphiques -->
     <div class="graphiques">
-      {% for elt in search[0]%}
-      <a href="http://127.0.0.1:5000/graph/{{elt}}" class="graph-item"
-        >{{elt}}</a
+      {% for elt in search%}
+      <a href="http://127.0.0.1:5000/graph/{{elt[0]}}" class="graph-item"
+        >{{elt[0]}}</a
       >
       {%endfor%}
     </div>
