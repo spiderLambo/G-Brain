@@ -18,10 +18,12 @@ def plot_data(data1, data2, repd1, repd2, plot_type='bar'):
         plt.title(f'Graphique en barres de {repd2} en fonction de {repd1}')
         plt.xticks(rotation=45)  # Rotation pour lisibilité
     
-    elif plot_type == 'pie':
+    elif plot_type == 'scatter':
         # Créer un graphique circulaire (camembert)
-        plt.pie(data2, labels=data1, autopct='%1.1f%%')
-        plt.title(f'Répartition de {repd2}')
+        plt.scatter(data1, data2, s=1)
+        plt.xlabel(repd1)  # Nom dynamique de l'axe X
+        plt.ylabel(repd2)  # Nom dynamique de l'axe Y
+        plt.title(f'Nuages de points de {repd2} en fonction de {repd1}')
     
     elif plot_type == 'plot':
         # Créer un graphique en ligne avec marqueurs pour chaque point
@@ -37,12 +39,12 @@ def plot_data(data1, data2, repd1, repd2, plot_type='bar'):
 def main():
 
     # Générer 5 valeurs arrondies entre le min et le max des données extraites
-    data1 = [14, 15, 16, 17, 18]  # Remplace ces valeurs par tes données pour l'axe X
-    data2 = [10, 20, 30, 25, 40]  # Remplace ces valeurs par tes données pour l'axe Y
+    # data1 = [14, 15, 16, 17, 18]  # Remplace ces valeurs par tes données pour l'axe X
+    # data2 = [10, 20, 30, 25, 40]  # Remplace ces valeurs par tes données pour l'axe Y
         
     print("Choisissez le type de graphique:")
     print("1 - Barres (bar)")
-    print("2 - Camembert (pie)")
+    print("2 - Nuages de points (scatter)")
     print("3 - Courbe (plot)")
     
     choice = int(input("Entrez votre choix (1, 2 ou 3) : "))
@@ -50,7 +52,7 @@ def main():
     if choice == 1:
         plot_type = 'bar'
     elif choice == 2:
-        plot_type = 'pie'
+        plot_type = 'scatter'
     elif choice == 3:
         plot_type = 'plot'
     else:
