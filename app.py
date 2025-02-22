@@ -76,7 +76,16 @@ def param():
 
 
         # Faire les graphiques
-        plot_data(data1, data2, formulaire.get("data1"), formulaire.get("data2"), f"{session["fichier"]}.{formulaire.get("data1")}.{formulaire.get("data2")}")
+        plot_data(data1, data2, formulaire.get("data1"), formulaire.get("data2"), f"{session["fichier"][:-4]}.{formulaire.get("data1")}.{formulaire.get("data2")}")
+
+
+        # Ajouter à la bdd
+        addGraph(
+            f"{session["fichier"][:-4]} ({formulaire.get("data1")} en foction de {formulaire.get("data2")}",
+            f"graphs/bar/{session["fichier"][:-4]}.{formulaire.get("data1")}.{formulaire.get("data2")}.png",
+            f"graphs/scatter/{session["fichier"][:-4]}.{formulaire.get("data1")}.{formulaire.get("data2")}.png",
+            f"graphs/plot/{session["fichier"][:-4]}.{formulaire.get("data1")}.{formulaire.get("data2")}.png"
+        )
 
 
         # Supprimer le fichier

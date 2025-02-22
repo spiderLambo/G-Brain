@@ -29,9 +29,9 @@ def isin(tuple):
 
 
 # Fonction pour ajouter un graphe
-def addGraph(tuple):
+def addGraph(nom, bar, scatter, plot):
     conn = sqlite3.connect("database.db")
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO Graphes VALUES (?, ?, ?, ?)", tuple)
+    cursor.execute("INSERT INTO Graphes VALUES (?, ?, ?, ?)", (nom, bar, scatter, plot))
     conn.commit()
     conn.close()
