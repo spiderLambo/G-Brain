@@ -37,32 +37,4 @@ def plot_data(data1, data2, repd1, repd2, fichier_nom):
 
     plt.savefig(f"static/graphs/plot/{fichier_nom}.png")
 
-# Exemple d'appel à la fonction avec un menu pour choisir le type de graphique
-def main():
 
-    # Générer 5 valeurs arrondies entre le min et le max des données extraites
-    # data1 = [14, 15, 16, 17, 18]  # Remplace ces valeurs par tes données pour l'axe X
-    # data2 = [10, 20, 30, 25, 40]  # Remplace ces valeurs par tes données pour l'axe Y
-        
-    print("Choisissez le type de graphique:")
-    print("1 - Barres (bar)")
-    print("2 - Nuages de points (scatter)")
-    print("3 - Courbe (plot)")
-    
-    choice = int(input("Entrez votre choix (1, 2 ou 3) : "))
-    
-    if choice == 1:
-        plot_type = 'bar'
-    elif choice == 2:
-        plot_type = 'scatter'
-    elif choice == 3:
-        plot_type = 'plot'
-    else:
-        print("Choix invalide. Utilisation du graphique par défaut (bar).")
-        plot_type = 'bar'
-
-    plot_data(data1, data2, repd1, repd2, plot_type)
-
-# Lancer le programme
-if __name__ == "__main__":
-    main()
