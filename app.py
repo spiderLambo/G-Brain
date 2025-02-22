@@ -1,7 +1,8 @@
 import os
 from flask import Flask, render_template, request, redirect, session
 from bddGestion import *
-from programme.Extractdata import extractname
+from programme.plotprint import plot_data
+from programme.Extractdata import *
 
 # Création de l'application
 app = Flask(__name__, static_url_path="/static")
@@ -54,24 +55,35 @@ def connect():
         fichier = request.files.get("file")  # Récupérer le fichier
         if request.method == "POST":
             if fichier:
-                file_path = os.path.join("uploads", fichier.filename)
-                fichier.save(file_path)  # Sauvegarde temporaire
+                fichier.save(os.path.join("uploads", fichier.filename))  # Sauvegarde temporaire
 
-                session["file_path"] = file_path  # On stocke le chemin du fichier
+                session["fichier"] = fichier.filename  # On stocke le chemin du fichier
 
+            session["fichierEnregistre"] = False
             return redirect("/choisirParametre")
         return render_template("g-brain_ajout-fichier.html")
     else:
         return render_template('g-brain_connexion.html')
 
 
-@app.route("/choisirParametre")
+@app.route("/choisirParametre", methods=["GET", "POST"])
 def param():
-    colonne = extractname(session["file_path"])
+    colonne = extractname(os.path.join("uploads", session["fichier"]))
 
-    # Supprimer le fichier
-    os.remove(session["file_path"])
-    session.pop("file_path")
+    if request.method == "POST":
+        formulaire = request.form
+        data1, data2 = extractData(f"uploads/{session["fichier"]}", formulaire.get("data1"), formulaire.get("data2"))
+
+
+        # Faire les graphiques
+        plot_data(data1, data2, formulaire.get("data1"), formulaire.get("data2"), f"{session["fichier"]}.{formulaire.get("data1")}.{formulaire.get("data2")}")
+
+
+        # Supprimer le fichier
+        os.remove(os.path.join("uploads", session["fichier"]))
+        session.pop("fichier")
+
+        return redirect("/")
 
 
     return render_template("g-brain_ajout-bdd.html", colonne = colonne)

@@ -6,7 +6,11 @@
   </head>
   <body>
     <div class="add_container">
-      <form method="POST" action="/connexion" enctype="multipart/form-data">
+      <form
+        method="POST"
+        action="/choisirParametre"
+        enctype="multipart/form-data"
+      >
         <label for="data1"></label>
         <select name="data1">
           {% for nom in colonne %}
@@ -15,13 +19,13 @@
         </select>
 
         <label for="data2">en fonction de </label>
-        <select name="data">
+        <select name="data2">
           {% for nom in colonne %}
           <option value="{{ nom }}">{{ nom }}</option>
           {% endfor %}
         </select>
 
-        <input id="button" type="submit" value="Valider" />
+        <input type="submit" value="Valider" />
       </form>
     </div>
   </body>

@@ -1,7 +1,4 @@
 import sqlite3
-import os
-
-
 
 # Fonction pour chercher dans la bdd
 def search(val):
@@ -29,3 +26,12 @@ def isin(tuple):
     result = cursor.fetchall()
     conn.commit()
     return not result ==[]
+
+
+# Fonction pour ajouter un graphe
+def addGraph(tuple):
+    conn = sqlite3.connect("database.db")
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO Graphes VALUES (?, ?, ?, ?)", tuple)
+    conn.commit()
+    conn.close()
