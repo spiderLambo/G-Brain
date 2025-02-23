@@ -20,7 +20,7 @@ def plot_data(data1, data2, repd1, repd2, fichier_nom):
     plt.savefig(f"static/graphs/bar/{fichier_nom}.png")
 
 
-    # Créer un graphique circulaire (camembert)
+    # Créer un graphique en nuages de points
     plt.scatter(data1, data2, s=1)
     plt.xlabel(repd1)  # Nom dynamique de l'axe X
     plt.ylabel(repd2)  # Nom dynamique de l'axe Y
@@ -28,7 +28,7 @@ def plot_data(data1, data2, repd1, repd2, fichier_nom):
 
     plt.savefig(f"static/graphs/scatter/{fichier_nom}.png")
 
-    # Créer un graphique en ligne avec marqueurs pour chaque point
+    # Créer un graphique en ligne
     plt.plot(data1, data2, marker='o', linestyle='-', color='b')
     plt.xlabel(repd1)
     plt.ylabel(repd2)
