@@ -1,0 +1,64 @@
+/* Réinitialisation de base */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Ajout d'un fond clair pour contraster */
+}
+
+/* En-tête */
+header {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Réduction de l'espace */
+    padding: 15px 50px;
+    background-color: #1c7079;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d’une ombre */
+}
+
+/* Logo */
+.logo {
+    height: 70px;
+}
+
+/* Conteneur principal */
+.add_container {
+    background: white;
+    margin: 200px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Champs de saisie */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px -10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Bouton de connexion */
+input#button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1c7079;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background-color: #155d66;
+}

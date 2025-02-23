@@ -3,8 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <title>Ajout</title>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{{ url_for('static', filename='styles/g-brain_ajout-bdd.css') }}"
+    />
   </head>
   <body>
+    <header>
+      <a href="http://127.0.0.1:5000/"
+        ><img
+          src="{{ url_for('static', filename='images/Logo_complet.png') }}"
+          alt="Logo: G-Brain"
+          class="logo"
+      /></a>
+    </header>
     <div class="add_container">
       <form
         method="POST"
@@ -25,7 +38,7 @@
           {% endfor %}
         </select>
 
-        <input type="submit" value="Valider" />
+        <input id="button" type="submit" value="Valider" />
       </form>
     </div>
   </body>
