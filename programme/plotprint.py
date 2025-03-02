@@ -16,6 +16,7 @@ def plot_data(data1, data2, repd1, repd2, fichier_nom):
     plt.ylabel(repd2)  # Nom dynamique de l'axe Y
     plt.title(f'Graphique en barres de {repd2} en fonction de {repd1}')
     plt.xticks(rotation=45)  # Rotation pour lisibilité
+    plt.grid(True)
 
     plt.savefig(f"static/graphs/bar/{fichier_nom}.png")
 
@@ -25,6 +26,8 @@ def plot_data(data1, data2, repd1, repd2, fichier_nom):
     plt.xlabel(repd1)  # Nom dynamique de l'axe X
     plt.ylabel(repd2)  # Nom dynamique de l'axe Y
     plt.title(f'Nuages de points de {repd2} en fonction de {repd1}')
+    plt.xticks(rotation=45)  # Rotation pour lisibilité
+    plt.grid(True)
 
     plt.savefig(f"static/graphs/scatter/{fichier_nom}.png")
 
@@ -33,6 +36,7 @@ def plot_data(data1, data2, repd1, repd2, fichier_nom):
     plt.xlabel(repd1)
     plt.ylabel(repd2)
     plt.title(f'Évolution de {repd2} en fonction de {repd1}')
+    plt.xticks(rotation=45)  # Rotation pour lisibilité
     plt.grid(True)
 
     plt.savefig(f"static/graphs/plot/{fichier_nom}.png")
